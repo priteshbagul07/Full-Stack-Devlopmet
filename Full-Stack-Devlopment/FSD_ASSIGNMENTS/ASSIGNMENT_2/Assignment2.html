@@ -3,215 +3,259 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio | Pritesh Bagul</title>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        body {
-            scroll-behavior: smooth;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        /* Navbar */
-        .navbar {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Hero */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #0d6efd, #6610f2);
-            color: white;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-        }
-
-        /* Section */
-        section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-
-        /* Skills */
-        .skill-box {
-            padding: 20px;
-            border-radius: 10px;
-            background: #f8f9fa;
-            transition: 0.3s;
-        }
-
-        .skill-box:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Projects */
-        .card:hover {
-            transform: scale(1.05);
-            transition: 0.3s;
-        }
-
-        /* Contact */
-        .contact-icons i {
-            font-size: 24px;
-            margin: 10px;
-            color: #0d6efd;
-        }
-
-        /* Footer */
-        footer {
-            background: #212529;
-            color: white;
-            padding: 15px;
-        }
-    </style>
+    <title>Pritesh Bagul | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">Pritesh</a>
-
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-code"></i> Pritesh Bagul
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
-    </div>
-</nav>
 
-<!-- Hero -->
-<section id="home" class="hero">
-    <div class="container">
-        <h1>Pritesh Bagul</h1>
-        <p class="lead">B.Tech Computer Engineering Student | Full Stack Developer</p>
-        <a href="#contact" class="btn btn-light mt-3">Contact Me</a>
-    </div>
-</section>
-
-<!-- About -->
-<section id="about">
-    <div class="container text-center">
-        <h2 class="section-title">About Me</h2>
-        <p>
-            I am a Computer Engineering student with a strong interest in Full Stack Development,
-            UI/UX Design, and AR/VR technologies. I enjoy building modern, user-friendly applications
-            and continuously improving my technical skills.
-        </p>
-    </div>
-</section>
-
-<!-- Skills -->
-<section id="skills" class="bg-light">
-    <div class="container text-center">
-        <h2 class="section-title">Skills</h2>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="skill-box">HTML</div>
-            </div>
-            <div class="col-md-3">
-                <div class="skill-box">CSS</div>
-            </div>
-            <div class="col-md-3">
-                <div class="skill-box">JavaScript</div>
-            </div>
-            <div class="col-md-3">
-                <div class="skill-box">React</div>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
-    </div>
-</section>
+    </nav>
 
-<!-- Projects -->
-<section id="projects">
-    <div class="container text-center">
-        <h2 class="section-title">Projects</h2>
-        <div class="row">
-
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h5>Library Management System</h5>
-                    <p>Web application using HTML, CSS, JS, PHP, and MySQL.</p>
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="title">B.Tech Computer Engineering Student | Full Stack Developer | Data Science Enthusiast</h2>
+                <h1>Hi, I'm Pritesh Bagul</h1>
+                <p class="tagline">Passionate about building real-world projects using modern technologies</p>
+                
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h5>AR Game</h5>
-                    <p>Multiplayer Augmented Reality game using Unity.</p>
+            <div class="hero-image">
+                <div class="avatar">
+                    <div class="avatar-inner">👨‍💻</div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h5>E-Commerce UI</h5>
-                    <p>Responsive shopping interface using Bootstrap & JavaScript.</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About Me</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I am a Computer Engineering student at <strong>Pimpri Chinchwad College of Engineering, Pune</strong>.</p>
+                <p>Passionate about <span class="highlight">Full Stack Development</span>, <span class="highlight">Data Science</span>, and <span class="highlight">AR/VR technologies</span>.</p>
+                <p>I enjoy building real-world applications and continuously learning new technologies.</p>
+            </div>
+            <div class="about-interest">
+                <h3>What drives me</h3>
+                <div class="interest-grid">
+                    <div><i class="fas fa-rocket"></i> Innovation</div>
+                    <div><i class="fas fa-users"></i> Collaboration</div>
+                    <div><i class="fas fa-lightbulb"></i> Problem Solving</div>
                 </div>
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Contact -->
-<section id="contact" class="bg-light">
-    <div class="container text-center">
-        <h2 class="section-title">Contact Me</h2>
-
-        <form class="row g-3 justify-content-center">
-            <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Your Name" required>
-            </div>
-            <div class="col-md-5">
-                <input type="email" class="form-control" placeholder="Your Email" required>
-            </div>
-            <div class="col-md-10">
-                <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
-            </div>
-            <div class="col-md-10">
-                <button class="btn btn-primary">Send Message</button>
-            </div>
-        </form>
-
-        <div class="contact-icons mt-4">
-            <i class="fab fa-linkedin"></i>
-            <i class="fab fa-github"></i>
-            <i class="fas fa-envelope"></i>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-header">
+            <h2>Skills & Technologies</h2>
         </div>
-    </div>
-</section>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fas fa-code"></i>
+                <h3>Programming Languages</h3>
+                <div class="skill-tags">
+                    <span>C++</span><span>Python</span><span>Kotlin</span><span>JavaScript</span><span>PHP</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-globe"></i>
+                <h3>Web Technologies</h3>
+                <div class="skill-tags">
+                    <span>HTML5</span><span>CSS3</span><span>Bootstrap</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-chart-bar"></i>
+                <h3>Data Science</h3>
+                <div class="skill-tags">
+                    <span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Scikit-learn</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-tools"></i>
+                <h3>Tools & Engines</h3>
+                <div class="skill-tags">
+                    <span>Git</span><span>VS Code</span><span>Unity</span><span>Unreal Engine</span><span>Blender</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-database"></i>
+                <h3>Databases</h3>
+                <div class="skill-tags">
+                    <span>MySQL</span><span>MongoDB</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Footer -->
-<footer class="text-center">
-    <p>© 2026 Pritesh Bagul | Full Stack Developer</p>
-</footer>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-book-open"></i></div>
+                <div class="project-content">
+                    <h3>Online Library Management System</h3>
+                    <p>Full stack project with HTML, CSS, JS, PHP & MySQL. Includes book issuing, return, admin & student login.</p>
+                    <div class="tech-stack">
+                        <span>PHP</span><span>MySQL</span><span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-chart-line"></i></div>
+                <div class="project-content">
+                    <h3>Stock Price Prediction</h3>
+                    <p>Machine Learning project using Linear Regression and Random Forest in Python.</p>
+                    <div class="tech-stack">
+                        <span>Python</span><span>Scikit-learn</span><span>Pandas</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-icon"><i class="fas fa-gamepad"></i></div>
+                <div class="project-content">
+                    <h3>3D Open World Game</h3>
+                    <p>Built using Unreal Engine and Blender with scoring and health system.</p>
+                    <div class="tech-stack">
+                        <span>Unreal Engine</span><span>Blender</span><span>C++</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Experience -->
+    <section id="experience">
+        <div class="section-header">
+            <h2>Experience</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"><i class="fas fa-briefcase"></i></div>
+                <div class="timeline-content">
+                    <h3>Data Science Virtual Internship</h3>
+                    <p><strong>Prodigy Infotech</strong> • July 2025</p>
+                    <p>Worked on real datasets and built predictive models using Python and Machine Learning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Education -->
+    <section id="education">
+        <div class="section-header">
+            <h2>Education</h2>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"><i class="fas fa-graduation-cap"></i></div>
+                <div class="timeline-content">
+                    <h3>B.Tech Computer Engineering</h3>
+                    <p><strong>Pimpri Chinchwad College of Engineering, Pune</strong> • 2023 – 2027</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+        <div class="section-header">
+            <h2>Certifications</h2>
+        </div>
+        <div class="certs-grid">
+            <div class="cert-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Basics of Python</h3>
+                <p>Coding Ninjas</p>
+            </div>
+            <div class="cert-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Introduction to SQL</h3>
+                <p>Simplilearn</p>
+            </div>
+            <div class="cert-card">
+                <i class="fas fa-certificate"></i>
+                <h3>Blender Beginners</h3>
+                <p>Infosys</p>
+            </div>
+            <div class="cert-card">
+                <i class="fas fa-certificate"></i>
+                <h3>XR Designer</h3>
+                <p>Immersive Insiders</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="section-header">
+            <h2>Let's Connect</h2>
+        </div>
+        <div class="contact-content">
+            <form id="contactForm" class="contact-form">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+
+            <div class="social-links">
+                <a href="https://github.com/" target="_blank" class="social-btn">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://linkedin.com/" target="_blank" class="social-btn">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:priteshbagul07@gmail.com" class="social-btn">
+                    <i class="fas fa-envelope"></i>
+                    <span>priteshbagul07@gmail.com</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © 2026 Pritesh Bagul • Built with ❤️ using pure HTML, CSS & JavaScript
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
