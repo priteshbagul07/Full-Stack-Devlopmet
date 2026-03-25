@@ -3,215 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio | Pritesh Bagul</title>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <style>
-        body {
-            scroll-behavior: smooth;
-            font-family: 'Segoe UI', sans-serif;
-        }
-
-        /* Navbar */
-        .navbar {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        /* Hero */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, #0d6efd, #6610f2);
-            color: white;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: bold;
-        }
-
-        /* Section */
-        section {
-            padding: 60px 0;
-        }
-
-        .section-title {
-            font-weight: bold;
-            margin-bottom: 30px;
-        }
-
-        /* Skills */
-        .skill-box {
-            padding: 20px;
-            border-radius: 10px;
-            background: #f8f9fa;
-            transition: 0.3s;
-        }
-
-        .skill-box:hover {
-            transform: translateY(-5px);
-        }
-
-        /* Projects */
-        .card:hover {
-            transform: scale(1.05);
-            transition: 0.3s;
-        }
-
-        /* Contact */
-        .contact-icons i {
-            font-size: 24px;
-            margin: 10px;
-            color: #0d6efd;
-        }
-
-        /* Footer */
-        footer {
-            background: #212529;
-            color: white;
-            padding: 15px;
-        }
-    </style>
+    <title>ClimaDash - Live Weather Dashboard</title>
+    
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">Pritesh</a>
-
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="menu">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Hero -->
-<section id="home" class="hero">
-    <div class="container">
-        <h1>Pritesh Bagul</h1>
-        <p class="lead">B.Tech Computer Engineering Student | Full Stack Developer</p>
-        <a href="#contact" class="btn btn-light mt-3">Contact Me</a>
-    </div>
-</section>
-
-<!-- About -->
-<section id="about">
-    <div class="container text-center">
-        <h2 class="section-title">About Me</h2>
-        <p>
-            I am a Computer Engineering student with a strong interest in Full Stack Development,
-            UI/UX Design, and AR/VR technologies. I enjoy building modern, user-friendly applications
-            and continuously improving my technical skills.
-        </p>
-    </div>
-</section>
-
-<!-- Skills -->
-<section id="skills" class="bg-light">
-    <div class="container text-center">
-        <h2 class="section-title">Skills</h2>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="skill-box">HTML</div>
+    <div class="dashboard-container">
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo">
+                <i class="fas fa-cloud-sun"></i> ClimaDash
             </div>
-            <div class="col-md-3">
-                <div class="skill-box">CSS</div>
+            
+            <div class="search-box">
+                <input type="text" id="citySearch" placeholder="Search city... (e.g. Mumbai, Delhi)" 
+                       onkeydown="if(event.key === 'Enter') searchCity()">
+                <button onclick="searchCity()" class="btn-search"><i class="fas fa-search"></i></button>
             </div>
-            <div class="col-md-3">
-                <div class="skill-box">JavaScript</div>
+
+            <div class="current-location">
+                <h6>Current Location</h6>
+                <div id="currentCity" class="city-name">Mumbai, Maharashtra</div>
             </div>
-            <div class="col-md-3">
-                <div class="skill-box">React</div>
+
+            <div class="menu">
+                <a href="#" onclick="switchTab(0)" class="menu-item active" id="tab-0">
+                    <i class="fas fa-home"></i> Today
+                </a>
+                <a href="#" onclick="switchTab(1)" class="menu-item" id="tab-1">
+                    <i class="fas fa-clock"></i> Hourly
+                </a>
+                <a href="#" onclick="switchTab(2)" class="menu-item" id="tab-2">
+                    <i class="fas fa-calendar-alt"></i> 7-Day Forecast
+                </a>
+                <a href="#" onclick="switchTab(3)" class="menu-item" id="tab-3">
+                    <i class="fas fa-wind"></i> Air Quality
+                </a>
+            </div>
+
+            <div class="mt-auto p-3">
+                <div class="unit-toggle">
+                    <button onclick="toggleUnit()" id="celsiusBtn" class="active">°C</button>
+                    <button onclick="toggleUnit()" id="fahrenheitBtn">°F</button>
+                </div>
+                <p class="small text-muted mt-3">Full Stack Demo • Real-time weather data can be connected to OpenWeatherMap API</p>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- Projects -->
-<section id="projects">
-    <div class="container text-center">
-        <h2 class="section-title">Projects</h2>
-        <div class="row">
-
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h5>Library Management System</h5>
-                    <p>Web application using HTML, CSS, JS, PHP, and MySQL.</p>
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h1 id="pageTitle">Today's Weather</h1>
+                <div class="d-flex align-items-center gap-3">
+                    <div class="date" id="currentDate"></div>
+                    <button onclick="refreshDashboard()" class="btn-refresh">
+                        <i class="fas fa-sync-alt"></i>
+                    </button>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h5>AR Game</h5>
-                    <p>Multiplayer Augmented Reality game using Unity.</p>
+            <!-- Current Weather Card -->
+            <div class="current-weather-card" id="currentWeatherCard">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <div class="d-flex align-items-center gap-4">
+                            <div id="currentIcon" class="weather-icon">☀️</div>
+                            <div>
+                                <h1 id="currentTemp" class="display-1 fw-bold">32°</h1>
+                                <h4 id="currentCondition" class="text-muted">Clear Sky</h4>
+                                <p id="feelsLike" class="mb-0">Feels like 34°</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <i class="fas fa-droplet"></i>
+                                <div class="mt-2"><strong id="humidity">42%</strong></div>
+                                <small>Humidity</small>
+                            </div>
+                            <div class="col-4">
+                                <i class="fas fa-wind"></i>
+                                <div class="mt-2"><strong id="windSpeed">12 km/h</strong></div>
+                                <small>Wind Speed</small>
+                            </div>
+                            <div class="col-4">
+                                <i class="fas fa-sun"></i>
+                                <div class="mt-2"><strong id="uvIndex">6</strong></div>
+                                <small>UV Index</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="card p-3">
-                    <h5>E-Commerce UI</h5>
-                    <p>Responsive shopping interface using Bootstrap & JavaScript.</p>
+            <!-- Charts & Sections -->
+            <div id="tabContent">
+                
+                <!-- Tab 0: Today Overview -->
+                <div id="tabContent-0">
+                    <div class="row">
+                        <!-- Hourly Chart -->
+                        <div class="col-xl-8">
+                            <div class="card h-100">
+                                <div class="card-header">Hourly Temperature Forecast</div>
+                                <div class="card-body">
+                                    <canvas id="hourlyChart" height="120"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Today's Highlights -->
+                        <div class="col-xl-4">
+                            <div class="card h-100">
+                                <div class="card-header">Today's Highlights</div>
+                                <div class="card-body">
+                                    <div class="row g-3">
+                                        <div class="col-6">
+                                            <div class="highlight-box">
+                                                <i class="fas fa-sun-rise"></i>
+                                                <div>Sunrise</div>
+                                                <h5 id="sunrise">06:12 AM</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="highlight-box">
+                                                <i class="fas fa-sun-set"></i>
+                                                <div>Sunset</div>
+                                                <h5 id="sunset">19:05 PM</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="highlight-box">
+                                                <i class="fas fa-cloud-rain"></i>
+                                                <div>Chance of Rain</div>
+                                                <h5 id="rainChance">10%</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="highlight-box">
+                                                <i class="fas fa-eye"></i>
+                                                <div>Visibility</div>
+                                                <h5 id="visibility">8 km</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 1: Hourly (same chart as above but full width) -->
+                <div id="tabContent-1" class="d-none">
+                    <div class="card">
+                        <div class="card-header">24-Hour Detailed Forecast</div>
+                        <div class="card-body">
+                            <canvas id="detailedHourlyChart" height="140"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: 7-Day Forecast -->
+                <div id="tabContent-2" class="d-none">
+                    <div class="row g-3" id="sevenDayCards">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Tab 3: Air Quality -->
+                <div id="tabContent-3" class="d-none">
+                    <div class="card">
+                        <div class="card-header">Air Quality Index (AQI)</div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-4 text-center">
+                                    <div id="aqiGauge" class="aqi-circle mx-auto">48</div>
+                                    <h5 class="text-success">Good</h5>
+                                </div>
+                                <div class="col-md-8">
+                                    <canvas id="aqiChart"></canvas>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <small class="text-muted">PM2.5 • PM10 • NO₂ • SO₂ • CO • O₃</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
-</section>
 
-<!-- Contact -->
-<section id="contact" class="bg-light">
-    <div class="container text-center">
-        <h2 class="section-title">Contact Me</h2>
-
-        <form class="row g-3 justify-content-center">
-            <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Your Name" required>
-            </div>
-            <div class="col-md-5">
-                <input type="email" class="form-control" placeholder="Your Email" required>
-            </div>
-            <div class="col-md-10">
-                <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
-            </div>
-            <div class="col-md-10">
-                <button class="btn btn-primary">Send Message</button>
-            </div>
-        </form>
-
-        <div class="contact-icons mt-4">
-            <i class="fab fa-linkedin"></i>
-            <i class="fab fa-github"></i>
-            <i class="fas fa-envelope"></i>
-        </div>
-    </div>
-</section>
-
-<!-- Footer -->
-<footer class="text-center">
-    <p>© 2026 Pritesh Bagul | Full Stack Developer</p>
-</footer>
-
-<!-- JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
 </body>
 </html>
