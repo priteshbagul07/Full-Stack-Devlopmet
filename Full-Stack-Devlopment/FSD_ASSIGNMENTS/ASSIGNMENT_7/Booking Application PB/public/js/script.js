@@ -1,1 +1,0 @@
-console.log('%c🚗 AutoMart Full Stack App Loaded Successfully!', 'color: #28a745; font-size: 16px;');
