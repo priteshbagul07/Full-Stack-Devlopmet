@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<div class="bg-dark text-white py-5 mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/images/vehicles/toyota-camry.jpg'); background-size: cover;">
+    <div class="container text-center py-5">
+        <h1 class="display-3 fw-bold">Welcome to AutoMart</h1>
+        <p class="lead fs-4">Buy/Sell Used Cars & Bikes • Book Test Drive Instantly</p>
+        <a href="/vehicles" class="btn btn-success btn-lg px-5">Browse Vehicles</a>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="mb-4">Featured Vehicles</h2>
+    <div class="row">
+        <% if (featuredVehicles && featuredVehicles.length > 0) { %>
+            <% featuredVehicles.forEach(vehicle => { %>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="<%= vehicle.image %>" 
+                         class="card-img-top" 
+                         style="height: 220px; object-fit: cover;"
+                         alt="<%= vehicle.title %>"
+                         onerror="this.src='https://via.placeholder.com/400x250?text=No+Image'">
+                    <div class="card-body">
+                        <h5><%= vehicle.title %></h5>
+                        <p class="fw-bold text-success">₹<%= vehicle.price.toLocaleString('en-IN') %></p>
+                        <p class="small text-muted"><%= vehicle.year %> • <%= vehicle.mileage %> km</p>
+                        <a href="/vehicles/<%= vehicle._id %>" class="btn btn-primary w-100">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        <% } else { %>
+            <p>No vehicles found. Visit <a href="/seed">/seed</a> first.</p>
+        <% } %>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
