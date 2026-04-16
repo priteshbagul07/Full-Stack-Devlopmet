@@ -10,12 +10,7 @@ Assignment1.html   # Main HTML file
 
 📄 Description
 This assignment focuses on understanding the fundamentals of web development using HTML.
-The webpage includes:
-Headings (<h1>, <h2>, etc.)
-Paragraphs (<p>)
-Basic formatting tags
-Proper HTML document structure
-It serves as the foundation for building more advanced web applications.
+The webpage includes: Headings (<h1>, <h2>, etc.),Paragraphs (<p>) Basic formatting tags Proper HTML document structure. It serves as the foundation for building more advanced web applications.
 
 ▶️ How to Run
 Download or clone the repository
